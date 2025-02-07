@@ -1,4 +1,4 @@
-const name = "Musaddique"
+const name = "Musaddique khan"
 const surname = " khan"
 
 console.log(name + surname); // Concatenating two strings using the '+' operator
