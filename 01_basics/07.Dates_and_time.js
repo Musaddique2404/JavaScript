@@ -9,7 +9,7 @@ console.log(typeof myDate); // Checking the type of 'myDate' (object)
 
 // Creating different Date objects with various formats
 
-let myCreatedDate0 = new Date(2023, 0, 23) // Creating a date for January 23, 2023 (Month is 0-based)
+let myCreatedDate0 = new Date(2025, 0, 23) // Creating a date for January 23, 2023 (Month is 0-based)
 let myCreatedDate1 = new Date(2023, 0, 23, 5, 3) // Adding time (5:03 AM) to the date
 let myCreatedDate2 = new Date("2023-01-14") // Creating a date from a string in YYYY-MM-DD format
 let myCreatedDate3 = new Date("01-14-2023") // Creating a date from MM-DD-YYYY format
