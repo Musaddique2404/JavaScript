@@ -1,0 +1,95 @@
+/*
+  JavaScript Execution Context
+  ------------------------------
+  JavaScript runs in different execution contexts, which include:
+  1. Global Execution Context
+     - This is the default context for code that is not inside a function. It represents the global environment.
+  
+  2. Function Execution Context
+     - A new execution context is created every time a function is invoked. It holds its own scope (local variables, parameters) and is separate from other contexts.
+  
+  3. Eval Execution Context
+     - This is a special context used when code is executed inside the eval() function. This is rarely used and can lead to security issues.
+
+*/
+
+/*
+  How Code Executes in JavaScript?
+  -------------------------------
+  JavaScript code runs in two phases:
+  
+  1. Memory Creation Phase
+     - During this phase, the JavaScript engine sets up the execution context and allocates memory for all variables and functions. 
+     - Variables are initialized with `undefined`, and function declarations are stored in memory (but not executed yet).
+  
+  2. Execution Phase
+     - In this phase, the code actually runs, meaning that the values of variables are assigned, and functions are executed.
+*/
+
+/*
+  Execution Flow of a JavaScript Program
+  --------------------------------------
+  Example:
+
+  let val1 = 10;               // Variable declaration and assignment
+  let val2 = 5;                // Variable declaration and assignment
+
+  function addNum(num1, num2) { // Function declaration
+      let total = num1 + num2; // Local variable inside function
+      return total;            // Return the result
+  }
+
+  let result1 = addNum(val1, val2); // Function call
+  let result2 = addNum(10, 8);     // Function call
+*/
+
+// 1. Global Phase (Memory Creation)
+
+/* 
+    Global Execution Context is created first.
+    The following are initialized:
+    - val1 → undefined
+    - val2 → undefined
+    - addNum → function definition (i.e., not yet executed)
+    - result1 → undefined
+    - result2 → undefined
+*/
+
+// 2. Memory Phase (Inside Execution Contexts)
+
+/*
+  Memory Creation Phase for Functions:
+  - When addNum() is declared, its definition is stored in memory.
+  - Local variables for the function (e.g., num1, num2, total) are created but not assigned yet.
+*/
+
+// 3. Execution Phase (Execution of Code)
+
+/* 
+    Assigning values:
+    - val1 = 10 and val2 = 5 are assigned.
+    - addNum(val1, val2) is called:
+        - A new execution context is created for the addNum function call.
+        - New local variables (num1, num2, total) are created and assigned.
+        - The sum (total = num1 + num2) is calculated and returned.
+    - Similarly, when addNum(10, 8) is called, a new execution context is created with new local variables and the function is executed.
+*/
+
+// Function Execution Contexts (New Sandboxes)
+
+/*
+  - Every time a function is invoked, a new execution context (or sandbox) is created.
+  - Each sandbox:
+      - Contains its own variable environment and execution thread.
+      - Is deleted after the function finishes executing, allowing the system to free up memory.
+      - The next function call creates a fresh new sandbox for the function.
+*/
+
+/*
+  Summary of Key Points:
+  -----------------------
+  - Memory Phase: Initializes variables and functions, setting up the environment without executing them.
+  - Execution Phase: Variables are assigned values, and functions are executed.
+  - Function Execution Context: A new context is created each time a function is invoked, maintaining its own variable environment.
+*/
+
